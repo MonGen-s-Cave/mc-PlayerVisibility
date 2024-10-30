@@ -49,7 +49,7 @@ public final class PlayerVisibility extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerSwapHandItemsListener(), this);
 
         if (getConfig().getBoolean("update-checker.enabled", true)) {
-            new UpdateChecker(this, configUtil, 5557);
+            new UpdateChecker(this, configUtil, 6684);
         }
     }
 
