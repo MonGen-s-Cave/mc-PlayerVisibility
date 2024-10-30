@@ -1,0 +1,24 @@
+messages:
+  no-permission: "%prefix% &cNincs jogod a parancs használatához."
+  database-error: "%prefix% &4Adatbázis hiba! &cKérlek lépj kapcsolatba egy adminisztrátorral."
+
+  hide-item:
+    players-hidden: "%prefix% &aAz összes játékos elrejtve!"
+    players-visible: "%prefix% &eAz összes játékos megjelenítve!"
+    no-permission: "%prefix% &cNincs jogosultságod használni a tárgyat."
+    # Hagyd "" és akkor az üzenet nem küldődik el.
+    cooldown: "%prefix% &eKérlek várj %cooldown% másodpercet a következő használat előtt!"
+
+  reload-command:
+    success: "%prefix% &aA plugin fájlai sikeresen újratöltődtek!"
+    db-success: "%prefix% &aAz adatbázis sikeresen betöltődött.."
+
+  give-command:
+    success: "%prefix% &aSikeresen adtál egy Hide tárgyat %player% játékosnak!"
+    player-not-found: "%prefix% &cA megadott játékos nem található vagy nem elérhető."
+    invalid-slot: "%prefix% &cA megadott slot szám érvénytelen!"
+    received: "%prefix% &aKaptál egy Hide itemet!"
+
+update-notify: "%prefix% &aÚj verzió érhető el a pluginhoz! &8(&c%current_version% &f→ &e%latest_version%&8)"
+
+messages-version: "1"

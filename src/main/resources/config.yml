@@ -1,0 +1,64 @@
+prefix: "&#8847D4[PlayerVisibility]"
+
+storage:
+  #  driver: sqlite, mysql or h2
+  driver: "h2"
+
+  host: "localhost"
+  port: 3306
+  name: "database_name"
+  username: "database_username"
+  password: "database_password"
+
+  pool:
+    maximumPoolSize: 10
+    minimumIdle: 5
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+    idleTimeout: 600000
+
+locale: en
+
+settings:
+  give-on-join: true
+  slot: 0
+  cooldown: 5
+
+items:
+  hide:
+    name: "&#FF1818&lʜɪᴅᴇ ᴘʟᴀʏᴇʀs &r&8[ʀɪɢʜᴛ-ᴄʟɪᴄᴋ]"
+    lore:
+      - "&r"
+      - "&fRight Click to hide"
+      - "&fall players in the server."
+      - "&r"
+      - "&eʀɪɢʜᴛ-ᴄʟɪᴄᴋ: ʜɪᴅᴇ"
+    material: "RED_CANDLE"
+    custom-model-data: 12345
+
+  show:
+    name: "&#41FF18&lsʜᴏᴡ ᴘʟᴀʏᴇʀs &r&8[ʀɪɢʜᴛ-ᴄʟɪᴄᴋ]"
+    lore:
+      - "&r"
+      - "&fRight Click to show"
+      - "&fall players in the server."
+      - "&r"
+      - "&eʀɪɢʜᴛ-ᴄʟɪᴄᴋ: sʜᴏᴡ"
+    material: "LIME_CANDLE"
+    custom-model-data: 12346
+
+  no-permission:
+    name: "&#8C8C8C&lʜɪᴅᴇ ᴘʟᴀʏᴇʀs &r&8[ɴᴏ ᴘᴇʀᴍɪssɪᴏɴ]"
+    lore:
+      - "&r"
+      - "&fRight Click to hide"
+      - "&fall players in the server."
+      - "&r"
+      - "&eʀɪɢʜᴛ-ᴄʟɪᴄᴋ: ʜɪᴅᴇ"
+    material: "GRAY_CANDLE"
+    custom-model-data: 12347
+
+update-checker:
+  enable: true
+
+config-version: "1"

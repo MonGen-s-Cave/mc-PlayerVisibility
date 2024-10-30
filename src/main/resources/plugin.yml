@@ -1,0 +1,24 @@
+name: mc-PlayerVisibility
+version: '${project.version}'
+main: hu.kxtsoo.playervisibility.PlayerVisibility
+api-version: '1.18'
+authors: [ kxtsoo ]
+folia-supported: true
+
+libraries:
+  - dev.dejvokep:boosted-yaml:1.3
+  - com.zaxxer:HikariCP:5.1.0
+  - com.h2database:h2:2.1.214
+
+commands:
+  mcplayervisibility:
+    alias: ['playervisibility', 'pvisibility', 'visibility', 'mc-playervisibility']
+    description: 'Use PlayerVisibility commands'
+    usage: /mcplayervisibility <args>
+    subcommands:
+      reload:
+        description: 'Reload the plugin files.'
+        usage: '/mcplayervisibility reload'
+      give:
+        description: 'Give a Hide item to player'
+        usage: '/mcplayervisibility give <player> [slot]'
