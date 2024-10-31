@@ -8,7 +8,9 @@ import hu.kxtsoo.playervisibility.model.VisibilityItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class PlayerInteractListener implements Listener {
 
@@ -23,6 +25,12 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
+        ItemStack hideItem = VisibilityItem.createHideItem(PlayerVisibility.getInstance().getConfigUtil());
+        ItemStack showItem = VisibilityItem.createShowItem(PlayerVisibility.getInstance().getConfigUtil());
+
+        if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) {
+            return;
+        }
 
         if (player.hasPermission("playervisibility.item.use")) {
             int slot = plugin.getConfigUtil().getConfig().getInt("settings.slot", 0);
