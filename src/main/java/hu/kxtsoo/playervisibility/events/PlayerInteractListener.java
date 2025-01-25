@@ -12,6 +12,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class PlayerInteractListener implements Listener {
 
     private final PlayerVisibility plugin;
@@ -25,12 +29,25 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        ItemStack hideItem = VisibilityItem.createHideItem(PlayerVisibility.getInstance().getConfigUtil());
-        ItemStack showItem = VisibilityItem.createShowItem(PlayerVisibility.getInstance().getConfigUtil());
 
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
         }
+
+        int configSlot = plugin.getConfigUtil().getConfig().getInt("settings.slot", 0);
+        Set<Integer> allowedSlots = IntStream.of(configSlot).boxed().collect(Collectors.toSet());
+
+        SchedulerManager.run(() -> {
+            for (int i = 0; i < player.getInventory().getSize(); i++) {
+                if (!allowedSlots.contains(i)) {
+                    ItemStack item = player.getInventory().getItem(i);
+                    if (item != null && (item.isSimilar(VisibilityItem.createHideItem(plugin.getConfigUtil())) ||
+                            item.isSimilar(VisibilityItem.createShowItem(plugin.getConfigUtil())))) {
+                        player.getInventory().setItem(i, null);
+                    }
+                }
+            }
+        });
 
         if (player.hasPermission("playervisibility.item.use")) {
             int slot = plugin.getConfigUtil().getConfig().getInt("settings.slot", 0);

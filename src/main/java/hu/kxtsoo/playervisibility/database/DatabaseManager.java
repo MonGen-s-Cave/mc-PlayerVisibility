@@ -58,6 +58,18 @@ public class DatabaseManager {
         throw new SQLException("Database is not initialized.");
     }
 
+    public static String getDatabaseType() {
+        if (database instanceof MySQL) {
+            return "MySQL";
+        } else if (database instanceof SQLite) {
+            return "SQLite";
+        } else if (database instanceof H2) {
+            return "H2";
+        } else {
+            return "Unknown";
+        }
+    }
+
     public static void close() throws SQLException {
         if (database != null) {
             database.close();

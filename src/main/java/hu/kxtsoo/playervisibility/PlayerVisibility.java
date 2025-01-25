@@ -48,9 +48,28 @@ public final class PlayerVisibility extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerDropItemListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerSwapHandItemsListener(), this);
 
-        if (getConfig().getBoolean("update-checker.enabled", true)) {
+        if (configUtil.getConfig().getBoolean("update-checker.enabled", true)) {
             new UpdateChecker(this, configUtil, 6684);
         }
+
+        String purple = "\u001B[38;2;136;71;212m";
+        String reset = "\u001B[0m";
+        String yellow = "\u001B[33m";
+        String software = getServer().getName();
+        String version = getServer().getVersion();
+
+        System.out.println(" ");
+        System.out.println(purple + "    ____  _        _ __   _______ ______     _____ ____ ___ _     ___ _______   __" + reset);
+        System.out.println(purple + "   |  _ \\| |      / \\\\ \\ / / ____|  _ \\ \\   / /_ _| __ )_ _| |   |_ _|_   _\\ \\ / /" + reset);
+        System.out.println(purple + "   | |_) | |     / _ \\\\ V /|  _| | |_) \\ \\ / / | ||  _ \\| || |    | |  | |  \\ V /" + reset);
+        System.out.println(purple + "   |  __/| |___ / ___ \\| | | |___|  _ < \\ V /  | || |_) | || |___ | |  | |   | |" + reset);
+        System.out.println(purple + "   |_|   |_____/_/   \\_\\_| |_____|_| \\_\\ \\_/  |___|____/___|_____|___| |_|   |_| " + reset);
+        System.out.println(" ");
+        System.out.println(purple + "   The plugin successfully started." + reset);
+        System.out.println(purple + "   mc-PlayerVisibility " + software + " " + version + reset);
+        System.out.println(yellow + "   Discord @ dc.mongenscave.com" + reset);
+        System.out.println(" ");
+        getLogger().info("\u001B[33m   [Database] Selected database type: " + DatabaseManager.getDatabaseType() + "\u001B[0m" );
     }
 
     @Override

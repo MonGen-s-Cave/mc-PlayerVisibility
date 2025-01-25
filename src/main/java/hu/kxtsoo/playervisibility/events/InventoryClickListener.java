@@ -2,7 +2,6 @@ package hu.kxtsoo.playervisibility.events;
 
 import hu.kxtsoo.playervisibility.PlayerVisibility;
 import hu.kxtsoo.playervisibility.model.VisibilityItem;
-import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,8 +22,6 @@ public class InventoryClickListener implements Listener {
         ItemStack hideItem = VisibilityItem.createHideItem(PlayerVisibility.getInstance().getConfigUtil());
         ItemStack showItem = VisibilityItem.createShowItem(PlayerVisibility.getInstance().getConfigUtil());
         ItemStack noPermissionItem = VisibilityItem.createNoPermissionItem(PlayerVisibility.getInstance().getConfigUtil());
-
-        if (player.getGameMode() != GameMode.SURVIVAL && player.getGameMode() != GameMode.ADVENTURE) return;
 
         if (isInPlayerOrCraftingInventory(event) && clickedItem != null &&
                 (clickedItem.isSimilar(hideItem) || clickedItem.isSimilar(showItem) || clickedItem.isSimilar(noPermissionItem))) {
